@@ -1,0 +1,47 @@
+.mat-card {
+  width: 100%;
+  background-color: $primaryColor;
+  border-radius: 10px !important;
+  border: 2px solid $borderColor;
+}
+
+.mat-card:hover {
+  border: 2px solid#344d81;
+}
+.mat-form-field {
+  padding-right: 15px;
+  .mat-input-element {
+    padding-right: 30px !important;
+    color: $secondaryColor;
+  }
+  .mat-form-field-label {
+    /*change color of label*/
+    color: $secondaryColor !important;
+    opacity: 0.2;
+  }
+  .mat-form-field-underline {
+    background-color: $secondaryColor;
+  }
+}
+.mat-icon {
+  color: $secondaryColor;
+  font-size: 2rem;
+}
+.menu-customize {
+  background-color: $mat-menu;
+  border: 1px solid $secondaryColor;
+  color: $secondaryColor;
+  button {
+    color: $secondaryColor;
+  }
+  .mat-icon {
+    color: $secondaryColor;
+  }
+}
+
+.more-vert-icon {
+  font-size: 1.5rem;
+}
+.list-icon {
+  font-size: 2.3rem;
+}

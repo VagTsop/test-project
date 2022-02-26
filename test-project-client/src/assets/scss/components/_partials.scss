@@ -1,0 +1,26 @@
+.divider {
+  margin-top: 10;
+  margin-bottom: 10px;
+}
+
+ol {
+  padding: 0;
+  width: 50%;
+  display: inline-block;
+  color: $secondaryColor;
+}
+
+ol li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.align-right {
+  text-align: right;
+}

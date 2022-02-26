@@ -1,0 +1,111 @@
+<mat-card>
+  <div>
+    <h1 class="title">Countries</h1>
+    <div fxLayoutAlign="center center">
+      <ol>
+        <li *ngFor="let item of modelList">
+          <span style="width:33%;">{{item.countryName ? item.countryName : '-'}}</span><span style="width:33%;"
+            class="align-right">{{item.countryArea ? item.countryArea : '-'}}</span>
+
+          <span style="width:33%;" class="align-right">{{item.countryCode2 ? item.countryCode2 : '-'}}</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div style="margin-top:25px" fxLayoutAlign="center center" class="footer">
+    <app-paging [paging]="req.$paging" (emitPaging)="onChangePaging($event)"></app-paging>
+  </div>
+</mat-card>
+<!-- <div>
+  <mat-card>
+
+    <div>
+
+      <div (click)="filterOpened = !filterOpened">
+        <mat-icon matTooltip="expand less" *ngIf="filterOpened" style="color:green;">expand_less</mat-icon>
+        <mat-icon matTooltip="expand more" *ngIf="!filterOpened" style="color: red;">expand_more</mat-icon>
+      </div>
+
+      <div fxLayout="column" *ngIf="filterOpened">
+
+        <div>
+          <mat-form-field>
+            <input [(ngModel)]="req.$name" matInput placeholder="Name" type="text">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input [(ngModel)]="req.$type" matInput placeholder="Type" type="text">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input [(ngModel)]="req.$uploadDate" matInput placeholder="Upload Date" type="Date">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input [(ngModel)]="req.$username" matInput placeholder="username" type="text">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button mat-icon-button (click)="onSearch()">
+            <mat-icon matTooltip="search">search</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onReset()">
+            <mat-icon matTooltip="reset">refresh</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <table border=1 frame=void rules=rows>
+      <thead>
+        <tr>
+          <th class="head sticky center" [style.width.%]="5"></th>
+          <th class="head sticky" [style.width.%]="25">
+            <app-sorting [paging]="req.$paging" label="Name" [sortField]="'NAME'"
+              (emitSorting)="onChangePaging($event)">
+            </app-sorting>
+          </th>
+
+          <th class="head sticky center" [style.width.%]="25">
+            <app-sorting [paging]="req.$paging" [label]="'Area'" [sortField]="'TYPE'"
+              (emitSorting)="onChangePaging($event)">
+            </app-sorting>
+          </th>
+
+          <th class="head sticky center" [style.width.%]="25">
+            <app-sorting [paging]="req.$paging" [label]="'Country Code 2'" [sortField]="'UPLOAD_DATE'"
+              (emitSorting)="onChangePaging($event)"></app-sorting>
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of modelList">
+          <td>
+            <div>
+              <button (click)="$event.stopPropagation();" class="" [mat-menu-trigger-for]="menuicon"
+                aria-label="Open icon menu" mat-icon-button>
+                <mat-icon class="more-vert-icon">more_vert</mat-icon>
+              </button>
+              <mat-menu class="menu-customize" #menuicon="matMenu">
+                <button (click)="onDelete(item.documentId)" mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+              </mat-menu>
+            </div>
+          </td>
+          <td>{{item.name ? item.name : '-' }}</td>
+          <td>{{item.type ? item.type : '-' }}</td>
+          <td>{{item.uploadDate ? item.uploadDate : '-' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:25px" fxLayoutAlign="center center" class="footer">
+      <app-paging [paging]="req.$paging" (emitPaging)="onChangePaging($event)"></app-paging>
+    </div>
+  </mat-card>
+</div> -->
