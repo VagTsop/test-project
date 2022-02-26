@@ -3,7 +3,7 @@
     <h1 class="title">Countries</h1>
     <div fxLayoutAlign="center center">
       <ol>
-        <li *ngFor="let item of modelList">
+        <li *ngFor="let item of modelList" (click)="onSelectRow(item)">
           <span style="width:33%;">{{item.countryName ? item.countryName : '-'}}</span><span style="width:33%;"
             class="align-right">{{item.countryArea ? item.countryArea : '-'}}</span>
 

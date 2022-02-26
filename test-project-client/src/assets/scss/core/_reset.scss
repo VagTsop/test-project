@@ -43,3 +43,8 @@ table {
     }
   }
 }
+
+li:hover:not(.selected) {
+  cursor: pointer;
+  background-color: lighten($color: $selectionHoverColor, $amount: 2);
+}

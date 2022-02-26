@@ -13,4 +13,5 @@ export class GenericComponent{
   modelList: any = [];
   subscriptions: Subscription = new Subscription();
   req = new NationRequest();
+  selectedRow: any = null;
 }

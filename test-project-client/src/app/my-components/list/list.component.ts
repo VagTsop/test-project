@@ -40,4 +40,8 @@ export class ListComponent extends GenericComponent implements OnInit, OnDestroy
     this.req.$paging = changePaging;
     this.onList();
   }
+
+  onSelectRow(item: any): void {
+    this.selectedRow = item;
+  }
 }
