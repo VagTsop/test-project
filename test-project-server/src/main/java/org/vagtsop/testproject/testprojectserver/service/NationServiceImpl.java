@@ -15,11 +15,7 @@ public class NationServiceImpl implements NationService {
 
     @Override
     public Page<NationDto> getList(Pageable pageable) {
-        return nationRepository.getList(pageable, new NationDto());
+        return nationRepository.getList(pageable);
     }
 
-//    @Override
-//    public boolean delete(Long id) {
-//        return documentRepository.delete(id);
-//    }
 }

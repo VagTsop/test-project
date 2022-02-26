@@ -5,6 +5,5 @@ import org.springframework.data.domain.Pageable;
 import org.vagtsop.testproject.testprojectserver.dto.NationDto;
 
 public interface NationService {
-    Page<NationDto> getList(Pageable pageable) ;
-
+    Page<NationDto> getList(Pageable pageable);
 }
