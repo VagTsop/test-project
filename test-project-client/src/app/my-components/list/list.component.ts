@@ -3,6 +3,7 @@ import { GenericComponent } from '../generic.component';
 import { NationService } from 'src/services/nation.service';
 import { NationRequest } from 'src/transport/nation.request';
 import { Field } from 'src/transport/helper/table-fields.helper';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class ListComponent extends GenericComponent implements OnInit, OnDestroy
 
 
   constructor(
+    public route: ActivatedRoute,
+    public router: Router,
     private nationService: NationService
   ) {
     super();
@@ -41,7 +44,7 @@ export class ListComponent extends GenericComponent implements OnInit, OnDestroy
     this.onList();
   }
 
-  onSelectRow(item: any): void {
-    this.selectedRow = item;
+  onDisplayLanguagesSpoken(item: any): void {
+    this.router.navigateByUrl(`menu/task1/${item}`);
   }
 }
