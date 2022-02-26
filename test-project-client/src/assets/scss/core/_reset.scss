@@ -48,3 +48,19 @@ li:hover:not(.selected) {
   cursor: pointer;
   background-color: lighten($color: $selectionHoverColor, $amount: 2);
 }
+
+app-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .content {
+    padding: 16px;
+    box-sizing: border-box;
+
+    // add full height to all (usually custom) components under main-layout. first child is <router-outlet>
+    > :last-child {
+      height: 100%;
+    }
+  }
+}
