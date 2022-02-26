@@ -9,40 +9,21 @@ export class NationService {
   constructor(protected http: HttpClient) {
   }
   private getListUrl = 'http://localhost:8080/api/nation/getList';
-  // getList(request: NationRequest): Observable<any> {
-  //   return this.http.get(
-  //     this.getListUrl,
-  //     {
-  //       params: this.constructParams(request, 'name,type,uploadDate,username')
-  //     }
-  //   ).pipe(map((response: any) => {
-  //     return response;
-  //   }));
-  // }
 
-    getList(request: NationRequest): Observable<any> {
+  getList(request: NationRequest): Observable<any> {
     return this.http.get(
       this.getListUrl,
       {
-        params: this.constructParams(request,'dateFrom,dateTo')
+        params: this.constructParams(request, null)
       }
     ).pipe(map((response: any) => {
       return response;
     }));
   }
 
-  // private deleteUrl = 'http://localhost:8080/api/document-manager/delete';
-  // delete(id: number): Observable<any> {
-  //   return this.http.post(
-  //     this.deleteUrl, id
-  //   ).pipe(map((response: any) => {
-  //     return response;
-  //   }));
-  // }
-
   public constructParams(
     req: NationRequest,
-    searchKeys: string
+    searchKeys: any
   ): HttpParams {
 
     let params: HttpParams = new HttpParams();

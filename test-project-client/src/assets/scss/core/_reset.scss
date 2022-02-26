@@ -12,3 +12,34 @@ body {
   background-color: $backgroundColor;
   color: $secondaryColor;
 }
+
+ol {
+  padding: 0;
+  width: 50%;
+  display: inline-block;
+  color: $secondaryColor;
+}
+
+ol li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  width: 100%;
+  thead {
+    line-height: 3em;
+    tr {
+      color: $secondaryColor;
+      opacity: 0.5;
+    }
+  }
+  tbody {
+    line-height: 4em;
+    tr {
+      text-align: center;
+      color: white;
+    }
+  }
+}
