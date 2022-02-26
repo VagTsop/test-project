@@ -10,6 +10,8 @@ export class NationService {
   }
   private getListUrl = 'http://localhost:8080/api/nation/getList';
 
+  private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/languagesSpoken';
+
   getList(request: NationRequest): Observable<any> {
     return this.http.get(
       this.getListUrl,
@@ -20,6 +22,20 @@ export class NationService {
       return response;
     }));
   }
+
+
+  fetchLanguagesSpokenByCountry(countryId: number): Observable<any> {
+    return this.http
+      .get( this.fetchLanguagesSpokenUrl, {
+        params: new HttpParams().set('countryId', countryId.toString()),
+      })
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+  }
+
 
   public constructParams(
     req: NationRequest,

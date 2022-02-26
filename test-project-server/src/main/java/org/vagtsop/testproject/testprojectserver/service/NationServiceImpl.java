@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.vagtsop.testproject.testprojectserver.dto.NationDto;
 import org.vagtsop.testproject.testprojectserver.repository.NationRepository;
 
+import java.util.List;
+
 @Component
 public class NationServiceImpl implements NationService {
 
@@ -18,4 +20,8 @@ public class NationServiceImpl implements NationService {
         return nationRepository.getList(pageable);
     }
 
+    @Override
+    public List<NationDto> fetchLanguagesSpokenUrl(long countryId) {
+        return nationRepository.fetchLanguagesSpokenUrl(countryId);
+    }
 }

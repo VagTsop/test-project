@@ -39,6 +39,23 @@ public class NationRepositoryImpl implements NationRepository {
         return new PageImpl<>(res, pageable, total);
     }
 
+    @Override
+    public List<NationDto> fetchLanguagesSpokenUrl(long id) {
+        MapSqlParameterSource in = new MapSqlParameterSource();
+
+        String sqlQuery = "Select l.language_id, language\n" +
+                "From country_languages as cl\n" +
+                "Inner join languages l On l.language_id = cl.language_id\n" +
+                "where cl.country_id = $$$ \n";
+
+        sqlQuery = sqlQuery.replace("$$$", ":id" );
+        if (id != -1) {
+            in.addValue("id", id);
+        }
+
+        return namedParameterJdbcTemplate.query(sqlQuery, in, new BeanPropertyRowMapper<>(NationDto.class));
+    }
+
 //    @Override
 //    public Page<NationDto> getList(Pageable pageable, NationDto dto) {
 //

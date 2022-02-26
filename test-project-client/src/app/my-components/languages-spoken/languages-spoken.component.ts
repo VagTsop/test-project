@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NationService } from 'src/services/nation.service';
+import { GenericComponent } from '../generic.component';
 
 @Component({
   selector: 'app-languages-spoken',
   templateUrl: './languages-spoken.component.html',
-  styleUrls: ['./languages-spoken.component.css']
+  providers: [NationService]
 })
-export class LanguagesSpokenComponent implements OnInit {
+export class LanguagesSpokenComponent extends GenericComponent implements OnInit, OnDestroy {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  private countryId = 0;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private nationService: NationService
+  ) {
+    super();
   }
 
+  ngOnInit(): void {
+
+    this.subscriptions.add(this.activatedRoute.params
+      .subscribe(params => {
+        this.countryId = params['countryId']
+        console.log(this.countryId);
+        this.subscriptions.add(this.nationService.fetchLanguagesSpokenByCountry(this.countryId)
+          .subscribe(res => {
+            this.modelList = res.content;
+            this.req.$paging.$totalSize = res.totalElements;
+          }));
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
 }
