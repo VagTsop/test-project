@@ -23,11 +23,9 @@ export class LanguagesSpokenComponent extends GenericComponent implements OnInit
     this.subscriptions.add(this.activatedRoute.params
       .subscribe(params => {
         this.countryId = params['countryId']
-        console.log(this.countryId);
         this.subscriptions.add(this.nationService.fetchLanguagesSpokenByCountry(this.countryId)
           .subscribe(res => {
-            this.modelList = res.content;
-            this.req.$paging.$totalSize = res.totalElements;
+            this.modelList = res;
           }));
       })
     );

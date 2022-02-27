@@ -28,11 +28,10 @@ public class NationController {
         return ResponseEntity.status(HttpStatus.OK).body(retVal);
     }
 
-    @GetMapping("/fetchLanguagesSpokenUrl")
+    @GetMapping("/fetch-languages-spoken-by-country")
     public ResponseEntity<List<NationDto>> fetchLanguagesSpokenUrl(
-            @RequestParam Long countryId)
+            @RequestParam long countryId)
            {
-               System.out.println(countryId);
         List<NationDto> retVal = nationService.fetchLanguagesSpokenUrl(countryId);
 
         return ResponseEntity.status(HttpStatus.OK).body(retVal);

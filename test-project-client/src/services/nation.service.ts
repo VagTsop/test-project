@@ -10,7 +10,7 @@ export class NationService {
   }
   private getListUrl = 'http://localhost:8080/api/nation/getList';
 
-  private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/languagesSpoken';
+  private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/fetch-languages-spoken-by-country';
 
   getList(request: NationRequest): Observable<any> {
     return this.http.get(

@@ -43,7 +43,7 @@ public class NationRepositoryImpl implements NationRepository {
     public List<NationDto> fetchLanguagesSpokenUrl(long id) {
         MapSqlParameterSource in = new MapSqlParameterSource();
 
-        String sqlQuery = "Select l.language_id, language\n" +
+        String sqlQuery = "Select l.language_id, l.language\n" +
                 "From country_languages as cl\n" +
                 "Inner join languages l On l.language_id = cl.language_id\n" +
                 "where cl.country_id = $$$ \n";

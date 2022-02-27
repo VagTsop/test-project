@@ -10,6 +10,8 @@ public class NationDto {
 
     private String countryCode2;
 
+    private String language;
+
     public Long getCountryId() {
         return countryId;
     }
@@ -40,5 +42,13 @@ public class NationDto {
 
     public void setCountryCode2(String countryCode2) {
         this.countryCode2 = countryCode2;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
