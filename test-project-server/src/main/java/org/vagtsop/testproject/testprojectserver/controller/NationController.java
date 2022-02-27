@@ -30,8 +30,8 @@ public class NationController {
 
     @GetMapping("/fetch-languages-spoken-by-country")
     public ResponseEntity<List<NationDto>> fetchLanguagesSpokenUrl(
-            @RequestParam long countryId)
-           {
+            @RequestParam long countryId) {
+
         List<NationDto> retVal = nationService.fetchLanguagesSpokenUrl(countryId);
 
         return ResponseEntity.status(HttpStatus.OK).body(retVal);

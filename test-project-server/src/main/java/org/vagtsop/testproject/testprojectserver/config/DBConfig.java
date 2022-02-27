@@ -19,11 +19,6 @@ public class DBConfig {
         config.setJdbcUrl("jdbc:mysql://localhost:3306/nation?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC");
         config.setUsername("root");
         config.setPassword("root");
-        config.setDriverClassName("com.mysql.jdbc.Driver");
-
-        config.addDataSourceProperty("cachePrepStmts", "true");
-        config.addDataSourceProperty("prepStmtCacheSize", "250");
-        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
         ds = new HikariDataSource(config);
         return ds;
     }

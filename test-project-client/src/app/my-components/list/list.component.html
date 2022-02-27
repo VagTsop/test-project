@@ -4,10 +4,10 @@
     <div fxLayoutAlign="center center">
       <ol>
         <li *ngFor="let item of modelList" (click)="onDisplayLanguagesSpoken(item.countryId)">
-          <span style="width:33%;">{{item.countryName ? item.countryName : '-'}}</span><span style="width:33%;"
+          <span fxFlex="33">{{item.countryName ? item.countryName : '-'}}</span><span fxFlex="33"
             class="align-right">{{item.countryArea ? item.countryArea : '-'}}</span>
 
-          <span style="width:33%;" class="align-right">{{item.countryCode2 ? item.countryCode2 : '-'}}</span>
+          <span fxFlex="33" class="align-right">{{item.countryCode2 ? item.countryCode2 : '-'}}</span>
         </li>
       </ol>
     </div>

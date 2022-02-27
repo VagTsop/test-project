@@ -49,10 +49,7 @@ public class NationRepositoryImpl implements NationRepository {
                 "where cl.country_id = $$$ \n";
 
         sqlQuery = sqlQuery.replace("$$$", ":id" );
-        if (id != -1) {
-            in.addValue("id", id);
-        }
-
+        in.addValue("id", id);
         return namedParameterJdbcTemplate.query(sqlQuery, in, new BeanPropertyRowMapper<>(NationDto.class));
     }
 
