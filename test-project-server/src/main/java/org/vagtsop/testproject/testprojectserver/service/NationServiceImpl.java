@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.vagtsop.testproject.testprojectserver.dto.NationDto;
 import org.vagtsop.testproject.testprojectserver.repository.NationRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -30,4 +31,10 @@ public class NationServiceImpl implements NationService {
         return nationRepository.fetchRegions();
     }
 
+    @Override
+    public Page<NationDto> getNationTableData(Pageable pageable, Long regionId,
+                                     Date dateFrom,
+                                     Date dateTo) {
+        return nationRepository.getNationTableData(pageable, new NationDto(regionId, dateFrom, dateTo));
+    }
 }

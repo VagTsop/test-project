@@ -4,7 +4,7 @@ export class NationRequest {
 
   private paging: Paging = new Paging();
   private countryId: number;
-  private regionList: number[];
+  private regionId: number;
   private dateFrom: Date;
   private dateTo: Date;
 
@@ -42,19 +42,19 @@ export class NationRequest {
   }
 
   /**
- * Getter $regionList
- * @return {number[]}
+ * Getter $regionId
+ * @return {number}
  */
-  public get $regionList(): number[] {
-    return this.regionList;
+  public get $regionId(): number {
+    return this.regionId;
   }
 
   /**
-   * Setter $regionList
+   * Setter $regionId
    * @param {number[]} value
    */
-  public set $regionList(value: number[]) {
-    this.regionList = value;
+  public set $regionId(value: number) {
+    this.regionId = value;
   }
 
 

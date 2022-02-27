@@ -1,5 +1,7 @@
 package org.vagtsop.testproject.testprojectserver.dto;
 
+import java.util.Date;
+
 public class NationDto {
 
     private Long countryId;
@@ -8,6 +10,14 @@ public class NationDto {
 
     private String regionName;
 
+    private String continentName;
+
+    private Long countryYear;
+
+    private Long countryGdp;
+
+    private Long countryPopulation;
+
     private String countryName;
 
     private Long countryArea;
@@ -15,6 +25,20 @@ public class NationDto {
     private String countryCode2;
 
     private String language;
+
+    private Date dateFrom;
+
+    private Date dateTo;
+
+    public NationDto() {
+
+    }
+
+    public NationDto(Long regionId, Date dateFrom, Date dateTo) {
+        this.regionId = regionId;
+        this.dateFrom = dateFrom;
+        this.dateTo = dateTo;
+    }
 
     public Long getCountryId() {
         return countryId;
@@ -70,5 +94,53 @@ public class NationDto {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
+    }
+
+    public Date getDateFrom() {
+        return dateFrom;
+    }
+
+    public void setDateFrom(Date dateFrom) {
+        this.dateFrom = dateFrom;
+    }
+
+    public Date getDateTo() {
+        return dateTo;
+    }
+
+    public void setDateTo(Date dateTo) {
+        this.dateTo = dateTo;
+    }
+
+    public String getContinentName() {
+        return continentName;
+    }
+
+    public void setContinentName(String continentName) {
+        this.continentName = continentName;
+    }
+
+    public Long getCountryYear() {
+        return countryYear;
+    }
+
+    public void setCountryYear(Long countryYear) {
+        this.countryYear = countryYear;
+    }
+
+    public Long getCountryGdp() {
+        return countryGdp;
+    }
+
+    public void setCountryGdp(Long countryGdp) {
+        this.countryGdp = countryGdp;
+    }
+
+    public Long getCountryPopulation() {
+        return countryPopulation;
+    }
+
+    public void setCountryPopulation(Long countryPopulation) {
+        this.countryPopulation = countryPopulation;
     }
 }

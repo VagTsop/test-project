@@ -15,6 +15,8 @@ export class NationService {
 
   private fetchRegionsUrl = 'http://localhost:8080/api/nation/fetch-regions';
 
+  private getNationTableDataUrl = 'http://localhost:8080/api/nation/get-nation-table-data';
+
   getList(request: NationRequest): Observable<any> {
     return this.http.get(
       this.getListUrl,
@@ -49,6 +51,17 @@ export class NationService {
       );
   }
 
+  getNationTableData(request: NationRequest) {
+    return this.http.get(
+      this.getNationTableDataUrl,
+      {
+        params: this.constructParams(request, 'regionId,dateFrom,dateTo')
+      }
+    ).pipe(map((response: any) => {
+      return response;
+    }));
+  }
+
   public constructParams(
     req: NationRequest,
     searchKeys: any
@@ -73,4 +86,5 @@ export class NationService {
     }
     return params;
   }
+
 }

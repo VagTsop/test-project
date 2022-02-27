@@ -15,11 +15,11 @@
 
           <label style="color:white;padding-right:15px">Select Region</label>
           <mat-form-field class="full-wid">
-            <mat-select class="bg" [(ngModel)]="req.$regionList" panelClass="scroll">
+            <mat-select class="bg" [(ngModel)]="req.$regionId" panelClass="scroll">
               <mat-option style="color:black">
 
-                <ngx-mat-select-search placeholderLabel="Search" ngModel noEntriesFoundLabel="no entries"
-                  (ngModelChange)="filterTypeList($event)">
+                <ngx-mat-select-search style="color:black" placeholderLabel="Search" ngModel
+                  noEntriesFoundLabel="no entries" (ngModelChange)="filterTypeList($event)">
                 </ngx-mat-select-search>
               </mat-option>
 

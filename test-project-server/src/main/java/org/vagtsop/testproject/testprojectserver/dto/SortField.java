@@ -2,7 +2,6 @@ package org.vagtsop.testproject.testprojectserver.dto;
 
 public class SortField {
     public enum Field {
-        ID("con.continent_id"),
         CONTINENT_NAME("con.name"),
         REGION_NAME("r.name"),
         COUNTRY_NAME("c.name"),
