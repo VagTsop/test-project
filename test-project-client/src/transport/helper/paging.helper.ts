@@ -4,7 +4,7 @@ export class Paging {
 
   private pageSize: number = 5;
   private pageNumber: number = 1;
-  private orderField: string = Field.NAME;
+  private orderField: string = Field.CONTINENT_NAME;
   private orderDirection: string = 'DESC';
   private totalSize: number = 0;
 

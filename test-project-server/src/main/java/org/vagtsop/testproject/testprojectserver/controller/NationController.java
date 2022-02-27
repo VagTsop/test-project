@@ -8,8 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.vagtsop.testproject.testprojectserver.dto.NationDto;
+import org.vagtsop.testproject.testprojectserver.response.NationResponse;
 import org.vagtsop.testproject.testprojectserver.service.NationService;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -36,4 +39,19 @@ public class NationController {
 
         return ResponseEntity.status(HttpStatus.OK).body(retVal);
     }
+
+    @GetMapping("/fetch-regions")
+    public ResponseEntity<Collection<NationResponse>> fetchLookup() {
+
+        Collection<NationDto> nationDtos = nationService.fetchRegions();
+
+        Collection<NationResponse> nationResponseList = new ArrayList<>();
+
+        for (NationDto nationDto : nationDtos) {
+            nationResponseList.add(new NationResponse(nationDto));
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(nationResponseList);
+    }
+
 }

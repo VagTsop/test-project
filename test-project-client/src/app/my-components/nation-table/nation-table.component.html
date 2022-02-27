@@ -1,0 +1,123 @@
+<mat-card>
+
+  <div>
+
+    <div (click)="filterOpened = !filterOpened">
+      <mat-icon matTooltip="expand less" *ngIf="filterOpened" style="color:green;">expand_less</mat-icon>
+      <mat-icon matTooltip="expand more" *ngIf="!filterOpened" style="color: red;">expand_more</mat-icon>
+    </div>
+
+    <div *ngIf="filterOpened">
+
+      <div fxLayoutAlign="start center" fxFlex>
+
+        <div fxLayoutAlign="start center" fxFlex="25">
+
+          <label style="color:white;padding-right:15px">Select Region</label>
+          <mat-form-field class="full-wid">
+            <mat-select class="bg" [(ngModel)]="req.$regionList" panelClass="scroll">
+              <mat-option style="color:black">
+
+                <ngx-mat-select-search placeholderLabel="Search" ngModel noEntriesFoundLabel="no entries"
+                  (ngModelChange)="filterTypeList($event)">
+                </ngx-mat-select-search>
+              </mat-option>
+
+              <!-- [value]="item.regionId -->
+              <mat-option class="bg" *ngFor="let item of filteredRegionList" [value]="item.regionId">
+                {{item.regionName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div fxFlex="25" fxLayoutAlign="start center" fxLayout="row">
+
+          <span style="color:white;padding-right:15px" class="label">Date From:</span>
+
+          <mat-form-field class="full-wid">
+            <input matInput [min]="minDateFrom" [(ngModel)]="dateFrom" (ngModelChange)="onDatePicker($event)"
+              [matDatepicker]="startsAt">
+            <mat-datepicker-toggle [for]="startsAt" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #startsAt></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="25" fxLayoutAlign="start center" fxLayout="row">
+
+          <span style="color:white;padding-right:15px" class="label">Date To:</span>
+
+          <mat-form-field class="full-wid">
+            <input [min]="dateFrom" matInput [(ngModel)]="dateTo" [matDatepicker]="endsAt">
+            <mat-datepicker-toggle [for]="endsAt" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #endsAt></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div style="padding-right:5px" fxFlex="25" fxLayoutAlign="end center">
+          <button mat-icon-button (click)="onSearch()">
+            <mat-icon matTooltip="search">search</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="onReset()">
+            <mat-icon matTooltip="reset">refresh</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table border=1 frame=void rules=rows>
+    <thead>
+      <tr>
+        <th class="head sticky" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'Continent'" [sortField]="'CONTINENT_NAME'"
+            (emitSorting)="onChangePaging($event)">
+          </app-sorting>
+        </th>
+
+        <th class="head sticky center" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'Region'" [sortField]="'REGION_NAME'"
+            (emitSorting)="onChangePaging($event)">
+          </app-sorting>
+        </th>
+
+        <th class="head sticky center" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'Country'" [sortField]="'COUNTRY_NAME'"
+            (emitSorting)="onChangePaging($event)"></app-sorting>
+        </th>
+
+        <th class="head sticky center" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'Year'" [sortField]="'COUNTRY_YEAR'"
+            (emitSorting)="onChangePaging($event)"></app-sorting>
+        </th>
+
+        <th class="head sticky center" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'Population'" [sortField]="'COUNTRY_POPULATION'"
+            (emitSorting)="onChangePaging($event)"></app-sorting>
+        </th>
+
+        <th class="head sticky center" [style.width.%]="25">
+          <app-sorting [paging]="req.$paging" [label]="'GDP'" [sortField]="'COUNTRY_GDP'"
+            (emitSorting)="onChangePaging($event)"></app-sorting>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of modelList">
+        <td>{{item.continentName ? item.continentName : '-' }}</td>
+        <td>{{item.regionName ? item.regionName : '-' }}</td>
+        <td>{{item.countryName ? item.countryName : '-' }}</td>
+        <td>{{item.countryYear ? item.countryYear : '-' }}</td>
+        <td>{{item.countryPopulation ? item.countryPopulation : '-' }}</td>
+        <td>{{item.countryGdp ? item.countryGdp : '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:25px" fxLayoutAlign="center center" class="footer">
+    <app-paging [paging]="req.$paging" (emitPaging)="onChangePaging($event)"></app-paging>
+  </div>
+</mat-card>

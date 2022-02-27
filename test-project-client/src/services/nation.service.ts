@@ -8,9 +8,12 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 export class NationService {
   constructor(protected http: HttpClient) {
   }
+
   private getListUrl = 'http://localhost:8080/api/nation/getList';
 
   private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/fetch-languages-spoken-by-country';
+
+  private fetchRegionsUrl = 'http://localhost:8080/api/nation/fetch-regions';
 
   getList(request: NationRequest): Observable<any> {
     return this.http.get(
@@ -26,7 +29,7 @@ export class NationService {
 
   fetchLanguagesSpokenByCountry(countryId: number): Observable<any> {
     return this.http
-      .get( this.fetchLanguagesSpokenUrl, {
+      .get(this.fetchLanguagesSpokenUrl, {
         params: new HttpParams().set('countryId', countryId.toString()),
       })
       .pipe(
@@ -36,6 +39,15 @@ export class NationService {
       );
   }
 
+  fetchRegions(): Observable<any> {
+    return this.http
+      .get(this.fetchRegionsUrl, {})
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+  }
 
   public constructParams(
     req: NationRequest,

@@ -53,6 +53,17 @@ public class NationRepositoryImpl implements NationRepository {
         return namedParameterJdbcTemplate.query(sqlQuery, in, new BeanPropertyRowMapper<>(NationDto.class));
     }
 
+    @Override
+    public List<NationDto> fetchRegions() {
+
+        String sqlQuery = "select r.region_id as regionId, r.name as regionName \n" +
+                "from regions as r\n" +
+                "order by name asc";
+        return namedParameterJdbcTemplate.query(sqlQuery, new BeanPropertyRowMapper<>(NationDto.class));
+    }
+
+
+
 //    @Override
 //    public Page<NationDto> getList(Pageable pageable, NationDto dto) {
 //

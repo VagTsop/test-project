@@ -10,4 +10,6 @@ public interface NationService {
     Page<NationDto> getList(Pageable pageable);
 
     List<NationDto> fetchLanguagesSpokenUrl (long countryId);
+
+    List<NationDto> fetchRegions();
 }

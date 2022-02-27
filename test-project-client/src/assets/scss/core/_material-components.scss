@@ -45,3 +45,25 @@
 .list-icon {
   font-size: 2.3rem;
 }
+
+.bg {
+  background: #fff !important;
+}
+
+::ng-deep .bg {
+  background: #fff !important;
+}
+
+Select ::ng-deep element ::ng-deep .bg {
+  background: #fff !important;
+}
+
+Select::ng-deep .bg {
+  background: #fff !important;
+}
+.mat-datepicker-toggle {
+  color: white;
+}
+.mat-calendar {
+  padding: 20px;
+}

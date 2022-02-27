@@ -14,6 +14,11 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PagingComponent } from "./my-components/paging/paging.component";
 import { SortingComponent } from "./my-components/sorting/sorting.component";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+
+import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
+import { MatNativeDateModule } from "@angular/material/core";
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -22,7 +27,11 @@ const MATERIAL_MODULES = [
   MatCardModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDatepickerModule,
+  MatNativeDateModule ,
+  MatSelectModule,
+  NgxMatSelectSearchModule
 ];
 
 @NgModule({

@@ -2,9 +2,13 @@ package org.vagtsop.testproject.testprojectserver.dto;
 
 public class SortField {
     public enum Field {
-        ID("c.id"),
-        NAME("c.name");
-
+        ID("con.continent_id"),
+        CONTINENT_NAME("con.name"),
+        REGION_NAME("r.name"),
+        COUNTRY_NAME("c.name"),
+        COUNTRY_YEAR("cs.year"),
+        COUNTRY_POPULATION("cs.population"),
+        COUNTRY_GDP("cs.gdp");
 
         private String value;
 
@@ -17,3 +21,6 @@ public class SortField {
         }
     }
 }
+
+
+

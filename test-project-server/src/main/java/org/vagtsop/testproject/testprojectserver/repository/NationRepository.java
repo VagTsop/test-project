@@ -10,4 +10,6 @@ public interface NationRepository {
     Page<NationDto> getList(Pageable pageable);
 
     List<NationDto> fetchLanguagesSpokenUrl(long id);
+
+    List<NationDto> fetchRegions();
 }

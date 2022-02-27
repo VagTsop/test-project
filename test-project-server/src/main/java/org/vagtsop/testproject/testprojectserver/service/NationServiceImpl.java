@@ -24,4 +24,10 @@ public class NationServiceImpl implements NationService {
     public List<NationDto> fetchLanguagesSpokenUrl(long countryId) {
         return nationRepository.fetchLanguagesSpokenUrl(countryId);
     }
+
+    @Override
+    public List<NationDto> fetchRegions() {
+        return nationRepository.fetchRegions();
+    }
+
 }

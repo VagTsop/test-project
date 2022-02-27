@@ -4,6 +4,10 @@ public class NationDto {
 
     private Long countryId;
 
+    private Long regionId;
+
+    private String regionName;
+
     private String countryName;
 
     private Long countryArea;
@@ -50,5 +54,21 @@ public class NationDto {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public Long getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(Long regionId) {
+        this.regionId = regionId;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
     }
 }
