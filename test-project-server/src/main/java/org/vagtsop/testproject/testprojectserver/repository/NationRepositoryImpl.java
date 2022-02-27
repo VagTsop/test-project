@@ -139,13 +139,4 @@ public class NationRepositoryImpl implements NationRepository {
     }
 }
 
-//    Select c.country_id as countryId, con.name as continentName,  r.name as regionName,
-//        c.name as countryName, cs.year as countryYear, cs.gdp as countryGdp,
-//        cs.population as countryPopulation
-//        From countries as c
-//        left join country_stats as cs on cs.country_id = c.country_id
-//        left join regions as r on r.region_id = c.region_id
-//        left join continents as con on con.continent_id = r.continent_id
-//
-//        order by countryid
 
