@@ -44,7 +44,7 @@ public class NationRepositoryImpl implements NationRepository {
     }
 
     @Override
-    public List<NationDto> fetchLanguagesSpokenUrl(long id) {
+    public List<NationDto> fetchLanguagesSpoken(long id) {
         MapSqlParameterSource in = new MapSqlParameterSource();
 
         String sqlQuery = "Select l.language_id, l.language\n" +

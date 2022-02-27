@@ -25,7 +25,7 @@ public class NationController {
     @Autowired
     private NationService nationService;
 
-    @GetMapping("/getList")
+    @GetMapping("/get-list")
     public ResponseEntity<Page<NationDto>> getList(Pageable pageable) {
 
         Page<NationDto> retVal = nationService.getList(pageable);
@@ -34,10 +34,10 @@ public class NationController {
     }
 
     @GetMapping("/fetch-languages-spoken-by-country")
-    public ResponseEntity<List<NationDto>> fetchLanguagesSpokenUrl(
+    public ResponseEntity<List<NationDto>> fetchLanguagesSpoken(
             @RequestParam long countryId) {
 
-        List<NationDto> retVal = nationService.fetchLanguagesSpokenUrl(countryId);
+        List<NationDto> retVal = nationService.fetchLanguagesSpoken(countryId);
 
         return ResponseEntity.status(HttpStatus.OK).body(retVal);
     }
@@ -59,7 +59,7 @@ public class NationController {
     @GetMapping("/get-nation-table-data")
     public ResponseEntity<Page<NationDto>> getList(
             @SortDefault(sort = "CONTINENT_NAME", direction = Sort.Direction.DESC)
-            @PageableDefault(value = 5)
+            @PageableDefault(value = 10)
                     Pageable pageable,
             @RequestParam Optional<Long> regionId,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Optional<Date> dateFrom,

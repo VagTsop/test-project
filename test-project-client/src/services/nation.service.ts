@@ -9,7 +9,7 @@ export class NationService {
   constructor(protected http: HttpClient) {
   }
 
-  private getListUrl = 'http://localhost:8080/api/nation/getList';
+  private getListUrl = 'http://localhost:8080/api/nation/get-list';
 
   private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/fetch-languages-spoken-by-country';
 

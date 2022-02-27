@@ -20,8 +20,6 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
   maxDate: Date;
   minDateFrom: Date;
 
-  size: number;
-
   constructor(
     private nationService: NationService,
     public datePipe: DatePipe
@@ -42,7 +40,6 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
     this.subscriptions.add(this.nationService.getNationTableData(this.req)
       .subscribe(res => {
         this.modelList = res.content;
-        this.size = this.modelList.length;
         this.req.$paging.$totalSize = res.totalElements;
       }));
   }
@@ -54,7 +51,9 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
   onReset() {
     this.filteredRegionList = this.regionList;
     this.req = new NationRequest();
+    this.req.$paging.$pageSize = 10;
     this.req.$paging.$orderField = Field.CONTINENT_NAME;
+    this.req.$paging.$orderDirection = 'ASC';
     this.onList();
   }
 

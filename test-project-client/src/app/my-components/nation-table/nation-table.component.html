@@ -37,7 +37,7 @@
           <span style="color:white;padding-right:15px" class="label">Date From:</span>
 
           <mat-form-field class="full-wid">
-            <input matInput [min]="minDateFrom" [(ngModel)]="dateFrom" (ngModelChange)="onDatePicker($event)"
+            <input matInput [min]="minDateFrom" [(ngModel)]="req.$dateFrom" (ngModelChange)="onDatePicker($event)"
               [matDatepicker]="startsAt">
             <mat-datepicker-toggle [for]="startsAt" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #startsAt></mat-datepicker>
@@ -49,7 +49,7 @@
           <span style="color:white;padding-right:15px" class="label">Date To:</span>
 
           <mat-form-field class="full-wid">
-            <input [min]="dateFrom" matInput [(ngModel)]="dateTo" [matDatepicker]="endsAt">
+            <input [min]="dateFrom" matInput [(ngModel)]="req.$dateTo" [matDatepicker]="endsAt">
             <mat-datepicker-toggle [for]="endsAt" matSuffix></mat-datepicker-toggle>
             <mat-datepicker #endsAt></mat-datepicker>
           </mat-form-field>

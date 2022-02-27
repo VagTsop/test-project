@@ -9,7 +9,7 @@ import java.util.List;
 public interface NationRepository {
     Page<NationDto> getList(Pageable pageable);
 
-    List<NationDto> fetchLanguagesSpokenUrl(long id);
+    List<NationDto> fetchLanguagesSpoken(long id);
 
     List<NationDto> fetchRegions();
 

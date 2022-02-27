@@ -22,8 +22,8 @@ public class NationServiceImpl implements NationService {
     }
 
     @Override
-    public List<NationDto> fetchLanguagesSpokenUrl(long countryId) {
-        return nationRepository.fetchLanguagesSpokenUrl(countryId);
+    public List<NationDto> fetchLanguagesSpoken(long countryId) {
+        return nationRepository.fetchLanguagesSpoken(countryId);
     }
 
     @Override
