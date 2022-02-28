@@ -12,7 +12,9 @@ import org.springframework.stereotype.Repository;
 import org.vagtsop.testproject.testprojectserver.dto.NationDto;
 import org.vagtsop.testproject.testprojectserver.dto.SortField;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,6 +69,8 @@ public class NationRepositoryImpl implements NationRepository {
     }
 
     public Page<NationDto> getNationTableData(Pageable pageable, NationDto dto) {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
 
         String sqlFromClause = "From countries as c\n" +
                 "left join country_stats as cs on cs.country_id = c.country_id\n" +
@@ -84,13 +88,13 @@ public class NationRepositoryImpl implements NationRepository {
         }
 
         if (dto.getDateFrom() != null) {
-            sqlWhereClause += "AND cast(cs.year AS date) >= :dateFrom ";
-            in.addValue("dateFrom", dto.getDateFrom());
+            sqlWhereClause += "AND cs.year  >= :dateFrom ";
+            in.addValue("dateFrom",formatter.format(dto.getDateFrom()));
         }
 
         if (dto.getDateTo() != null) {
-            sqlWhereClause += "AND cast(cs.year AS date) <= :dateTo ";
-            in.addValue("dateTo", dto.getDateTo());
+            sqlWhereClause += "AND cs.year  <= :dateTo ";
+            in.addValue("dateTo", formatter.format(dto.getDateTo()));
         }
 
         List<String> validSortColumns = new ArrayList<String>();

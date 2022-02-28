@@ -62,8 +62,8 @@ public class NationController {
             @PageableDefault(value = 10)
                     Pageable pageable,
             @RequestParam Optional<Long> regionId,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Optional<Date> dateFrom,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Optional<Date> dateTo
+            @RequestParam @DateTimeFormat(pattern = "yyyy") Optional<Date> dateFrom,
+            @RequestParam @DateTimeFormat(pattern = "yyyy") Optional<Date> dateTo
             ) {
 
         Page<NationDto> retVal = nationService.getNationTableData(pageable, regionId.orElse(null), dateFrom.orElse(null), dateTo.orElse(null));
