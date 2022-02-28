@@ -45,6 +45,8 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
   }
 
   onSearch() {
+    this.req.$dateFrom  = this.datePipe.transform(this.dateFrom, 'yyyy') as any;
+    this.req.$dateTo = this.datePipe.transform(this.dateTo, 'yyyy') as any;
     this.onList();
   }
 
