@@ -41,7 +41,7 @@ export class CountryListComponent extends GenericComponent implements OnInit, On
     this.onList();
   }
 
-  onDisplayLanguagesSpoken(item: any): void {
+  onDisplayLanguagesSpokenByCountry(item: any): void {
     this.router.navigateByUrl(`menu/task1/${item}`);
   }
 }
