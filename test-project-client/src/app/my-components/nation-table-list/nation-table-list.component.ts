@@ -7,10 +7,10 @@ import { GenericComponent } from '../generic.component';
 
 @Component({
   selector: 'app-nation-table',
-  templateUrl: './nation-table.component.html',
+  templateUrl: './nation-table-list.component.html',
   providers: [NationService]
 })
-export class NationTableComponent extends GenericComponent implements OnInit, OnDestroy {
+export class NationTableListComponent extends GenericComponent implements OnInit, OnDestroy {
   filterOpened = false;
 
   regionList: any = [];
@@ -37,7 +37,7 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
   }
 
   onList(): void {
-    this.subscriptions.add(this.nationService.getNationTableData(this.req)
+    this.subscriptions.add(this.nationService.getNationList(this.req)
       .subscribe(res => {
         this.modelList = res.content;
         this.req.$paging.$totalSize = res.totalElements;
@@ -45,8 +45,8 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
   }
 
   onSearch() {
-    this.req.$dateFrom  = this.datePipe.transform(this.dateFrom, 'yyyy') as any;
-    this.req.$dateTo = this.datePipe.transform(this.dateTo, 'yyyy') as any;
+    this.req.$yearFrom = this.datePipe.transform(this.dateFrom, 'yyyy') as string;
+    this.req.$yearTo = this.datePipe.transform(this.dateTo, 'yyyy') as string;
     this.onList();
   }
 
@@ -55,7 +55,7 @@ export class NationTableComponent extends GenericComponent implements OnInit, On
     this.req = new NationRequest();
     this.req.$paging.$pageSize = 10;
     this.req.$paging.$orderField = Field.CONTINENT_NAME;
-    this.req.$paging.$orderDirection = 'ASC';
+    this.req.$paging.$orderDirection = 'DESC';
     this.onList();
   }
 

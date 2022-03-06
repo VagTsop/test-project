@@ -2,7 +2,7 @@ import { Field } from './table-fields.helper';
 
 export class Paging {
 
-  private pageSize: number = 5;
+  private pageSize: number = 10;
   private pageNumber: number = 1;
   private orderField: string = Field.CONTINENT_NAME;
   private orderDirection: string = 'DESC';
@@ -96,7 +96,7 @@ export class Paging {
   }
 
   public get $hasNextPage(): boolean {
-    return (this.pageNumber * this.pageSize) < this.totalSize;;
+    return (this.pageNumber * this.pageSize) < this.totalSize;
   }
 
   public get $hasFirstPage(): boolean {

@@ -1,7 +1,5 @@
 package org.vagtsop.testproject.testprojectserver.dto;
 
-import java.util.Date;
-
 public class NationDto {
 
     private Long countryId;
@@ -26,18 +24,18 @@ public class NationDto {
 
     private String language;
 
-    private Date dateFrom;
+    private Long yearFrom;
 
-    private Date dateTo;
+    private Long yearTo;
 
     public NationDto() {
 
     }
 
-    public NationDto(Long regionId, Date dateFrom, Date dateTo) {
+    public NationDto(Long regionId, Long yearFrom, Long yearTo) {
         this.regionId = regionId;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
+        this.yearFrom = yearFrom;
+        this.yearTo = yearTo;
     }
 
     public Long getCountryId() {
@@ -96,20 +94,20 @@ public class NationDto {
         this.regionName = regionName;
     }
 
-    public Date getDateFrom() {
-        return dateFrom;
+    public Long getYearFrom() {
+        return yearFrom;
     }
 
-    public void setDateFrom(Date dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setYearFrom(Long yearFrom) {
+        this.yearFrom = yearFrom;
     }
 
-    public Date getDateTo() {
-        return dateTo;
+    public Long getYearTo() {
+        return yearTo;
     }
 
-    public void setDateTo(Date dateTo) {
-        this.dateTo = dateTo;
+    public void setYearTo(Long yearTo) {
+        this.yearTo = yearTo;
     }
 
     public String getContinentName() {

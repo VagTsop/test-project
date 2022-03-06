@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LanguagesSpokenComponent } from "./my-components/languages-spoken/languages-spoken.component";
-import { ListComponent } from "./my-components/list/list.component";
+import { CountryListComponent } from "./my-components/country-list/country-list";
 import { MenuComponent } from "./my-components/menu/menu.component";
-import { NationTableComponent } from "./my-components/nation-table/nation-table.component";
+import { NationTableListComponent } from "./my-components/nation-table-list/nation-table-list.component";
 
 const routes: Routes = [
   {
@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'menu/task1',
-    component: ListComponent
+    component: CountryListComponent
   },
   {
     path: 'menu/task1/:countryId',
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'menu/task3',
-    component: NationTableComponent
+    component: NationTableListComponent
   },
 
 ]

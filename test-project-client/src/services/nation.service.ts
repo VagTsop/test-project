@@ -9,17 +9,11 @@ export class NationService {
   constructor(protected http: HttpClient) {
   }
 
-  private getListUrl = 'http://localhost:8080/api/nation/get-list';
+  private basePath = 'http://localhost:8080/api/nation'
 
-  private fetchLanguagesSpokenUrl = 'http://localhost:8080/api/nation/fetch-languages-spoken-by-country';
-
-  private fetchRegionsUrl = 'http://localhost:8080/api/nation/fetch-regions';
-
-  private getNationTableDataUrl = 'http://localhost:8080/api/nation/get-nation-table-data';
-
-  getList(request: NationRequest): Observable<any> {
+  getCountriesList(request: NationRequest): Observable<any> {
     return this.http.get(
-      this.getListUrl,
+      this.basePath + '/get-countries-list',
       {
         params: this.constructParams(request, null)
       }
@@ -28,10 +22,9 @@ export class NationService {
     }));
   }
 
-
   fetchLanguagesSpokenByCountry(countryId: number): Observable<any> {
     return this.http
-      .get(this.fetchLanguagesSpokenUrl, {
+      .get(this.basePath + '/fetch-languages-spoken-by-country', {
         params: new HttpParams().set('countryId', countryId.toString()),
       })
       .pipe(
@@ -43,7 +36,7 @@ export class NationService {
 
   fetchRegions(): Observable<any> {
     return this.http
-      .get(this.fetchRegionsUrl, {})
+      .get(this.basePath + '/fetch-regions')
       .pipe(
         map((response: any) => {
           return response;
@@ -51,11 +44,11 @@ export class NationService {
       );
   }
 
-  getNationTableData(request: NationRequest) {
+  getNationList(request: NationRequest) {
     return this.http.get(
-      this.getNationTableDataUrl,
+      this.basePath + '/get-nation-list',
       {
-        params: this.constructParams(request, 'regionId,dateFrom,dateTo')
+        params: this.constructParams(request, 'regionId,yearFrom,yearTo')
       }
     ).pipe(map((response: any) => {
       return response;
@@ -86,5 +79,4 @@ export class NationService {
     }
     return params;
   }
-
 }

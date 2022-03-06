@@ -3,11 +3,9 @@ import { Paging } from "./helper/paging.helper";
 export class NationRequest {
 
   private paging: Paging = new Paging();
-  private countryId: number;
   private regionId: number;
-  private dateFrom: Date;
-  private dateTo: Date;
-
+  private yearFrom: string;
+  private yearTo: string;
   /**
    * Getter $paging
    * @return {Paging }
@@ -22,23 +20,6 @@ export class NationRequest {
    */
   public set $paging(value: Paging) {
     this.paging = value;
-  }
-
-
-  /**
-   * Getter $countryId
-   * @return {number}
-   */
-  public get $countryId(): number {
-    return this.countryId
-  }
-
-  /**
-   * Setter $countryId
-   * @param {number} value
-   */
-  public set $countryId(value: number) {
-    this.countryId = value;
   }
 
   /**
@@ -57,36 +38,35 @@ export class NationRequest {
     this.regionId = value;
   }
 
-
   /**
  * Getter $dateFrom
- * @return {Date}
+ * @return {string}
  */
-  public get $dateFrom(): Date {
-    return this.dateFrom;
+  public get $yearFrom(): string {
+    return this.yearFrom;
   }
 
   /**
-   * Setter $dateFrom
-   * @param {Date} value
+   * Setter $yearFrom
+   * @param {string} value
    */
-  public set $dateFrom(value: Date) {
-    this.dateFrom = value;
+  public set $yearFrom(value: string) {
+    this.yearFrom = value;
   }
 
   /**
-   * Getter $dateTo
-   * @return {Date}
+   * Getter $yearTo
+   * @return {string}
    */
-  public get $dateTo(): Date {
-    return this.dateTo;
+  public get $yearTo(): string {
+    return this.yearTo;
   }
 
   /**
-   * Setter $dateTo
-   * @param {Date} value
+   * Setter $yearTo
+   * @param {string} value
    */
-  public set $dateTo(value: Date) {
-    this.dateTo = value;
+  public set $yearTo(value: string) {
+    this.yearTo = value;
   }
 }

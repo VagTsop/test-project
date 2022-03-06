@@ -1,18 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { GenericComponent } from '../generic.component';
 import { NationService } from 'src/services/nation.service';
-import { NationRequest } from 'src/transport/nation.request';
-import { Field } from 'src/transport/helper/table-fields.helper';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
+  selector: 'app-country-list',
+  templateUrl: './country-list.component.html',
   providers: [NationService]
 })
-export class ListComponent extends GenericComponent implements OnInit, OnDestroy {
-
+export class CountryListComponent extends GenericComponent implements OnInit, OnDestroy {
 
   constructor(
     public route: ActivatedRoute,
@@ -28,7 +25,7 @@ export class ListComponent extends GenericComponent implements OnInit, OnDestroy
   }
 
   onList(): void {
-    this.subscriptions.add(this.nationService.getList(this.req)
+    this.subscriptions.add(this.nationService.getCountriesList(this.req)
       .subscribe(res => {
         this.modelList = res.content;
         this.req.$paging.$totalSize = res.totalElements;

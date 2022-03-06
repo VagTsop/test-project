@@ -10,7 +10,8 @@ import { GenericComponent } from '../generic.component';
 })
 export class LanguagesSpokenComponent extends GenericComponent implements OnInit, OnDestroy {
 
-  private countryId = 0;
+  private countryId: number;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private nationService: NationService

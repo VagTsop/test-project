@@ -23,7 +23,6 @@
                 </ngx-mat-select-search>
               </mat-option>
 
-              <!-- [value]="item.regionId -->
               <mat-option class="bg" *ngFor="let item of filteredRegionList" [value]="item.regionId">
                 {{item.regionName}}
               </mat-option>
@@ -71,34 +70,34 @@
   <table border=1 frame=void rules=rows>
     <thead>
       <tr>
-        <th class="head sticky" [style.width.%]="25">
+        <th class="head sticky" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'Continent'" [sortField]="'CONTINENT_NAME'"
             (emitSorting)="onChangePaging($event)">
           </app-sorting>
         </th>
 
-        <th class="head sticky center" [style.width.%]="25">
+        <th class="head sticky center" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'Region'" [sortField]="'REGION_NAME'"
             (emitSorting)="onChangePaging($event)">
           </app-sorting>
         </th>
 
-        <th class="head sticky center" [style.width.%]="25">
+        <th class="head sticky center" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'Country'" [sortField]="'COUNTRY_NAME'"
             (emitSorting)="onChangePaging($event)"></app-sorting>
         </th>
 
-        <th class="head sticky center" [style.width.%]="25">
+        <th class="head sticky center" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'Year'" [sortField]="'COUNTRY_YEAR'"
             (emitSorting)="onChangePaging($event)"></app-sorting>
         </th>
 
-        <th class="head sticky center" [style.width.%]="25">
+        <th class="head sticky center" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'Population'" [sortField]="'COUNTRY_POPULATION'"
             (emitSorting)="onChangePaging($event)"></app-sorting>
         </th>
 
-        <th class="head sticky center" [style.width.%]="25">
+        <th class="head sticky center" [style.width.%]="16.6">
           <app-sorting [paging]="req.$paging" [label]="'GDP'" [sortField]="'COUNTRY_GDP'"
             (emitSorting)="onChangePaging($event)"></app-sorting>
         </th>

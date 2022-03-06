@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './my-components/header/header.component';
-import { ListComponent } from './my-components/list/list.component';
 import { MenuComponent } from './my-components/menu/menu.component';
 import { SharedModule } from './shared.module';
 import { LanguagesSpokenComponent } from './my-components/languages-spoken/languages-spoken.component';
-import { NationTableComponent } from './my-components/nation-table/nation-table.component';
+import { NationTableListComponent } from './my-components/nation-table-list/nation-table-list.component';
 import {DatePipe} from '@angular/common';
+import { CountryListComponent } from './my-components/country-list/country-list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ListComponent,
+    CountryListComponent,
     MenuComponent,
     LanguagesSpokenComponent,
-    NationTableComponent
+    NationTableListComponent
   ],
   imports: [
     SharedModule,
