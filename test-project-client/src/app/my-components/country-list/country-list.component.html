@@ -3,7 +3,7 @@
     <h1 class="title">Countries</h1>
     <div fxLayoutAlign="center center">
       <ol>
-        <li *ngFor="let item of modelList" (click)="onDisplayLanguagesSpoken(item.countryId)">
+        <li *ngFor="let item of modelList" (click)="onDisplayLanguagesSpokenByCountry(item.countryId)">
           <span fxFlex="33">{{item.countryName ? item.countryName : '-'}}</span><span fxFlex="33"
             class="align-right">{{item.countryArea ? item.countryArea : '-'}}</span>
 
